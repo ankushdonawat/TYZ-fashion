@@ -1,5 +1,5 @@
 # TYZ Fashion
 
-This is the official website for TYZ Fashion, powered by GitHub Pages and Jekyll.
+Official site of TYZ Fashion — a modern youth-driven clothing brand.
 
-Visit: [https://ankushdonawat.github.io/TYZ-fashion](https://ankushdonawat.github.io/TYZ-fashion)
+**Visit Live**: [https://ankushdonawat.github.io/TYZ-fashion](https://ankushdonawat.github.io/TYZ-fashion)
