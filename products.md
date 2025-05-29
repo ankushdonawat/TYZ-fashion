@@ -1,16 +1,17 @@
 ---
-layout: page
-title: Our Products
-permalink: /products/
+layout: default
+title: Products
 ---
 
-### 🔥 Latest Collection
+# Our Collection
 
-- **T-Shirt - TYZ Classic**  
-  ₹499 - Cotton, available in all sizes
+### 👕 Urban Tees
+Comfort-fit t-shirts with bold prints.
 
-- **Hoodie - Black Edition**  
-  ₹999 - Premium fleece, perfect for winters
+### 👖 Classic Denim
+Timeless jeans for daily wear.
 
-- **Cap - Street Style**  
-  ₹299 - Unisex, adjustable fit
+### 🧥 Street Jackets
+Fashion-forward layers for any weather.
+
+Stay tuned – more designs coming soon!
