@@ -28,7 +28,7 @@
         loginBtn.addEventListener("click", () => {
           signInWithPopup(auth, provider)
             .then((result) => {
-              window.location.href = "product.html";
+              window.location.href = "product_stylish.html"; // ✅ redirect to stylish theme
             })
             .catch((error) => {
               alert("Login failed: " + error.message);
@@ -37,6 +37,34 @@
       }
     };
   </script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #FFD700;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #FFD700;
+      color: black;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #e5c100;
+    }
+  </style>
 </head>
 <body>
   <h2>Welcome to TYZ Fashion</h2>
