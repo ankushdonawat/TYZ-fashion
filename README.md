@@ -1,5 +1,28 @@
-# TYZ Fashion
+# TYZ Fashion 👗✨
 
-Official site of TYZ Fashion — a modern youth-driven clothing brand.
+Welcome to the official GitHub repository for **TYZ Fashion**, a stylish and modern fashion brand focused on trendy, affordable, and premium clothing for all.
 
-**Visit Live**: [https://ankushdonawat.github.io/TYZ-fashion](https://ankushdonawat.github.io/TYZ-fashion)
+🌐 **Live Website**: [tyzfashion.github.io](https://tyzfashion.github.io)
+
+## 🚀 About TYZ Fashion
+
+TYZ Fashion is your go-to destination for fresh fashion trends, curated collections, and hand-picked styles. We aim to redefine fashion with:
+
+- ✨ High-quality apparel
+- 🛍️ Seasonal collections
+- 🔥 Trend-setting designs
+
+## 📁 Project Structure
+
+```bash
+📦 TYZ-Fashion/
+├── index.html          # Home page
+├── about.html          # About Us
+├── shop.html           # Collection/Shop page
+├── contact.html        # Contact page
+├── styles/
+│   └── style.css       # Main styles
+├── assets/
+│   ├── images/         # Image assets
+│   └── fonts/          # Font files (if any)
+└── README.md           # Project documentation
