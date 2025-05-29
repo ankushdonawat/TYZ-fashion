@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - TYZ Fashion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #111; color: #fff; }
+    header {
+      background-color: #000;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { color: gold; margin: 0; font-size: 28px; }
+    nav a { color: gold; text-decoration: none; margin-left: 20px; font-weight: 600; }
+    .container { max-width: 500px; margin: auto; padding: 30px; }
+    textarea, input, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 4px;
+      border: none;
+    }
+    button {
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TYZ Fashion</h1>
+    <nav>
+      <a href="product.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Checkout</h2>
+    <form id="checkout-form">
+      <label>Delivery Address:</label>
+      <textarea id="address" required></textarea>
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" required>
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const address = document.getElementById("address").value;
+      const phone = document.getElementById("phone").value;
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (cart.length === 0) {
+        alert("Cart is empty.");
+        return;
+      }
+
+      alert("Order placed successfully!\nThank you for shopping with TYZ Fashion.");
+      localStorage.removeItem("cart");
+      window.location.href = "order.html";
+    });
+  </script>
+</body>
+</html>
