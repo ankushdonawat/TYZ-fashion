@@ -4,11 +4,9 @@
   <title>Login - TYZ Fashion</title>
   <meta charset="UTF-8">
   <script type="module">
-    // Firebase import
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
     import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
 
-    // Your Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyCKtSxgCLyZwQk04yHaS7M1Xk-L8ebuhHU",
       authDomain: "tyzstore-31daa.firebaseapp.com",
@@ -23,20 +21,24 @@
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    function login() {
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          window.location.href = "product.html";
-        })
-        .catch((error) => {
-          alert("Login failed: " + error.message);
-        });
-    }
-
     window.onload = () => {
-      document.getElementById("loginBtn").addEventListener("click", login);
+      const loginBtn = document.getElementById("loginBtn");
+      if (loginBtn) {
+        loginBtn.addEventListener("click", () => {
+          signInWithPopup(auth, provider)
+            .then((result) => {
+              window.location.href = "product.html";
+            })
+            .catch((error) => {
+              alert("Login failed: " + error.message);
+            });
+        });
+      }
     };
   </script>
 </head>
 <body>
-  <h2>Welcome to TYZ Fashion</
+  <h2>Welcome to TYZ Fashion</h2>
+  <button id="loginBtn">Login with Google</button>
+</body>
+</html>
