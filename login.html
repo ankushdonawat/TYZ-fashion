@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - TYZ Fashion</title>
+  <meta charset="UTF-8">
+  <script type="module">
+    // Firebase import
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCKtSxgCLyZwQk04yHaS7M1Xk-L8ebuhHU",
+      authDomain: "tyzstore-31daa.firebaseapp.com",
+      projectId: "tyzstore-31daa",
+      storageBucket: "tyzstore-31daa.appspot.com",
+      messagingSenderId: "776905778333",
+      appId: "1:776905778333:web:704cea9008983586e76074",
+      measurementId: "G-RX3MSTM261"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    function login() {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          window.location.href = "product.html";
+        })
+        .catch((error) => {
+          alert("Login failed: " + error.message);
+        });
+    }
+
+    window.onload = () => {
+      document.getElementById("loginBtn").addEventListener("click", login);
+    };
+  </script>
+</head>
+<body>
+  <h2>Welcome to TYZ Fashion</
