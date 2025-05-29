@@ -1,2 +1,115 @@
-<!-- Redirect to login or homepage -->
-<script>window.location.href='login.html';</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TYZ Fashion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #FFD700;
+      overflow-x: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #FFD700;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      padding: 100px 20px;
+      text-align: center;
+      background: linear-gradient(145deg, #111, #222);
+      animation: slideUp 1s ease-out;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: gold;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #ccc;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .cta-button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: gold;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e6c200;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TYZ Fashion</h1>
+    <nav>
+      <a href="login.html">Login</a>
+      <a href="product_stylish.html">Shop</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Style That Speaks</h2>
+    <p>Explore premium shirts, shoes, and jeans with TYZ Fashion.</p>
+    <a href="product_stylish.html"><button class="cta-button">Start Shopping</button></a>
+  </div>
+
+</body>
+</html>
