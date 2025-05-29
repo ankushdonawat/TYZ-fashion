@@ -1,74 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>TYZ Products</title>
   <meta charset="UTF-8">
+  <title>Our Products - TYZ Fashion</title>
+  <link rel="stylesheet" href="assets/style.css">
   <style>
-    body { font-family: Arial; padding: 20px; }
-    .product { border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; width: 200px; }
-    .product img { width: 100%; height: auto; }
-    .product button { background-color: black; color: white; padding: 5px 10px; border: none; cursor: pointer; }
-  </style>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCKtSxgCLyZwQk04yHaS7M1Xk-L8ebuhHU",
-      authDomain: "tyzstore-31daa.firebaseapp.com",
-      projectId: "tyzstore-31daa",
-      storageBucket: "tyzstore-31daa.appspot.com",
-      messagingSenderId: "776905778333",
-      appId: "1:776905778333:web:704cea9008983586e76074",
-      measurementId: "G-RX3MSTM261"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    function addToCart(name, price) {
-      const user = auth.currentUser;
-      if (!user) {
-        alert("Please login first.");
-        window.location.href = "login.html";
-        return;
-      }
-
-      addDoc(collection(db, "cart"), {
-        uid: user.uid,
-        product: name,
-        price: price
-      }).then(() => {
-        alert(`${name} added to cart!`);
-      }).catch((error) => {
-        alert("Error: " + error.message);
-      });
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
     }
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        document.getElementById("username").textContent = user.displayName;
-      } else {
-        window.location.href = "login.html";
-      }
-    });
-  </script>
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-  <h2>Welcome, <span id="username">Guest</span> 👋</h2>
-  <div class="product">
-    <img src="assets/shirt.jpg" alt="Shirt">
-    <h3>Stylish Shirt</h3>
-    <p>Price: ₹699</p>
-    <button onclick="addToCart('Stylish Shirt', 699)">Add to Cart</button>
+
+  <h1>Our Products</h1>
+  <div class="product-list">
+    <div class="product">
+      <img src="assets/shirt.jpg" alt="Shirt">
+      <h3>Stylish Shirt</h3>
+      <p>₹599</p>
+    </div>
+    <div class="product">
+      <img src="assets/jeans.jpg" alt="Jeans">
+      <h3>Blue Jeans</h3>
+      <p>₹999</p>
+    </div>
+    <div class="product">
+      <img src="assets/shoes1.jpg" alt="Shoes 1">
+      <h3>Running Shoes</h3>
+      <p>₹1299</p>
+    </div>
+    <div class="product">
+      <img src="assets/shoes2.jpg" alt="Shoes 2">
+      <h3>Formal Shoes</h3>
+      <p>₹1499</p>
+    </div>
   </div>
-  <div class="product">
-    <img src="assets/shoes.jpg" alt="Shoes">
-    <h3>Running Shoes</h3>
-    <p>Price: ₹999</p>
-    <button onclick="addToCart('Running Shoes', 999)">Add to Cart</button>
-  </div>
+
 </body>
 </html>
