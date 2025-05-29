@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TYZ Fashion - Checkout</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    nav {
+      background-color: #333;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .cart-summary {
+      margin-bottom: 20px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #555;
+    }
+    .message {
+      font-weight: bold;
+      color: green;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="product.html">Products</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+
+  <div class="container">
+    <h2>Checkout</h2>
+
+    <div class="cart-summary" id="cart-summary"></div>
+
+    <form id="checkout-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="mobile" placeholder="Mobile Number" required>
+      <textarea id="address" placeholder="Delivery Address" required></textarea>
+      <button type="submit">Place Order</button>
+    </form>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    // Show cart summary
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartSummaryDiv = document.getElementById('cart-summary');
+
+    let total = 0;
+    cart.forEach(item => {
+      const div = document.createElement('div');
+      div.textContent = `${item.name} - ₹${item.price}`;
+      cartSummaryDiv.appendChild(div);
+      total += item.price;
+    });
+
+    const totalDiv = document.createElement('div');
+    totalDiv.style.marginTop = "10px";
+    totalDiv.innerHTML = `<strong>Total: ₹${total}</strong>`;
+    cartSummaryDiv.appendChild(totalDiv);
+
+    // Order form submission
+    const form = document.getElementById('checkout-form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('message').textContent = "🎉 Order placed successfully!";
+      localStorage.removeItem('cart');
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
