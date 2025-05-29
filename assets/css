@@ -37,3 +37,21 @@ footer {
   width: 100%;
   bottom: 0;
 }
+.logo-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+  animation: logoPop 0.6s ease-in-out;
+}
+
+@keyframes logoPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
