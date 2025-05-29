@@ -1,8 +1,12 @@
 ---
-layout: page
+layout: default
 title: About Us
-permalink: /about/
 ---
 
-TYZ Fashion is a youth-led fashion brand built with passion and creativity.  
-We aim to deliver trend-setting outfits that are affordable and stylish.
+# About TYZ Fashion
+
+TYZ Fashion is a modern clothing brand focused on merging minimal design with bold expression.
+
+- Founded: 2024
+- Mission: Redefine everyday fashion
+- Vision: Make premium design accessible to everyone
