@@ -1,0 +1,32 @@
+tshirt1.jpg, jeans1.jpg, jacket1.jpg
+---
+layout: default
+title: Products
+---
+
+# Our Products
+
+## T-Shirts
+
+![T-Shirt](assets/images/tshirt1.jpg)
+**Classic White Tee**  
+Soft cotton, unisex fit, minimal design.  
+**Price:** ₹399
+
+---
+
+## Jeans
+
+![Jeans](assets/images/jeans1.jpg)
+**Dark Blue Slim Fit**  
+Stretchable denim, ideal for everyday wear.  
+**Price:** ₹799
+
+---
+
+## Jackets
+
+![Jacket](assets/images/jacket1.jpg)
+**Urban Street Jacket**  
+Windproof, bold style, perfect for winter.  
+**Price:** ₹999
