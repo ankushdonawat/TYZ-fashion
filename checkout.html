@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TYZ Fashion - Checkout</title>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCKtSxgCLyZwQk04yHaS7M1Xk-L8ebuhHU",
+      authDomain: "tyzstore-31daa.firebaseapp.com",
+      projectId: "tyzstore-31daa",
+      storageBucket: "tyzstore-31daa.firebasestorage.app",
+      messagingSenderId: "776905778333",
+      appId: "1:776905778333:web:704cea9008983586e76074",
+      measurementId: "G-RX3MSTM261"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("checkout-form").addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const address = document.getElementById("address").value;
+
+          await addDoc(collection(db, "orders"), {
+            userId: user.uid,
+            items: cart,
+            address: address,
+            created: new Date()
+          });
+
+          alert("Order placed!");
+          localStorage.removeItem("cart");
+        });
+      } else {
+        alert("Please login first!");
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</head>
+<body>
+  <h2>Checkout</h2>
+  <form id="checkout-form">
+    <textarea id="address" placeholder="Enter delivery address" required></textarea><br>
+    <button type="submit">Place Order</button>
+  </form>
+</body>
+</html>
