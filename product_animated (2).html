@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TYZ Fashion - Products</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #000;
+      color: #FFD700;
+      animation: fadeIn 1s ease-in;
+    }
+    header {
+      background-color: #111;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #FFD700;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: white;
+    }
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 30px;
+    }
+    .product {
+      background-color: #111;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      width: 220px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideUp 0.6s ease forwards;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+    .product p {
+      margin: 0;
+      color: #ccc;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e6c200;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TYZ Fashion</h1>
+    <nav>
+      <a href="product_animated.html">Products</a>
+      <a href="cart_animated.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <div class="product-list">
+    <div class="product">
+      <img src="assets/shirt.jpg" alt="Stylish Shirt">
+      <h3>Stylish Shirt</h3>
+      <p>₹599</p>
+      <button onclick="addToCart('Stylish Shirt', 599)">Add to Cart</button>
+      <button onclick="buyNow('Stylish Shirt', 599)">Buy Now</button>
+    </div>
+    <div class="product">
+      <img src="assets/jeans.jpg" alt="Blue Jeans">
+      <h3>Blue Jeans</h3>
+      <p>₹999</p>
+      <button onclick="addToCart('Blue Jeans', 999)">Add to Cart</button>
+      <button onclick="buyNow('Blue Jeans', 999)">Buy Now</button>
+    </div>
+    <div class="product">
+      <img src="assets/shoes1.jpg" alt="Running Shoes">
+      <h3>Running Shoes</h3>
+      <p>₹1299</p>
+      <button onclick="addToCart('Running Shoes', 1299)">Add to Cart</button>
+      <button onclick="buyNow('Running Shoes', 1299)">Buy Now</button>
+    </div>
+    <div class="product">
+      <img src="assets/shoes2.jpg" alt="Formal Shoes">
+      <h3>Formal Shoes</h3>
+      <p>₹1499</p>
+      <button onclick="addToCart('Formal Shoes', 1499)">Add to Cart</button>
+      <button onclick="buyNow('Formal Shoes', 1499)">Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    function addToCart(productName, price) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name: productName, price: price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(productName + " added to cart!");
+    }
+    function buyNow(productName, price) {
+      alert("Proceeding to buy " + productName);
+      window.location.href = "checkout.html";
+    }
+  </script>
+</body>
+</html>
