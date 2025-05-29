@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TYZ Fashion - Products</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      color: gold;
+      margin: 0;
+      font-size: 28px;
+    }
+    nav a {
+      color: gold;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 30px;
+    }
+    .product {
+      background-color: #222;
+      border: 1px solid #444;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 220px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .product h3 {
+      color: gold;
+      margin: 10px 0 5px;
+    }
+    .product p {
+      margin: 0;
+      color: #ccc;
+    }
+    button {
+      margin: 10px 5px 0;
+      padding: 8px 16px;
+      background-color: gold;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ffd700;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TYZ Fashion</h1>
+    <nav>
+      <a href="product.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <div class="product-list">
+    <div class="product">
+      <img src="assets/shirt.jpg" alt="Stylish Shirt">
+      <h3>Stylish Shirt</h3>
+      <p>₹599</p>
+      <button onclick="addToCart('Stylish Shirt', 599)">Add to Cart</button>
+      <button onclick="buyNow('Stylish Shirt', 599)">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="assets/jeans.jpg" alt="Blue Jeans">
+      <h3>Blue Jeans</h3>
+      <p>₹999</p>
+      <button onclick="addToCart('Blue Jeans', 999)">Add to Cart</button>
+      <button onclick="buyNow('Blue Jeans', 999)">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="assets/shoes1.jpg" alt="Running Shoes">
+      <h3>Running Shoes</h3>
+      <p>₹1299</p>
+      <button onclick="addToCart('Running Shoes', 1299)">Add to Cart</button>
+      <button onclick="buyNow('Running Shoes', 1299)">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="assets/shoes2.jpg" alt="Formal Shoes">
+      <h3>Formal Shoes</h3>
+      <p>₹1499</p>
+      <button onclick="addToCart('Formal Shoes', 1499)">Add to Cart</button>
+      <button onclick="buyNow('Formal Shoes', 1499)">Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    function addToCart(productName, price) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name: productName, price: price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(productName + " added to cart!");
+    }
+
+    function buyNow(productName, price) {
+      alert("Proceeding to buy " + productName);
+      window.location.href = "checkout.html";
+    }
+  </script>
+
+</body>
+</html>
