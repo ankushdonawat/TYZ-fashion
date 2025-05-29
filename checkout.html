@@ -2,55 +2,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TYZ Fashion - Checkout</title>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCKtSxgCLyZwQk04yHaS7M1Xk-L8ebuhHU",
-      authDomain: "tyzstore-31daa.firebaseapp.com",
-      projectId: "tyzstore-31daa",
-      storageBucket: "tyzstore-31daa.firebasestorage.app",
-      messagingSenderId: "776905778333",
-      appId: "1:776905778333:web:704cea9008983586e76074",
-      measurementId: "G-RX3MSTM261"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const auth = getAuth();
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        document.getElementById("checkout-form").addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const cart = JSON.parse(localStorage.getItem("cart")) || [];
-          const address = document.getElementById("address").value;
-
-          await addDoc(collection(db, "orders"), {
-            userId: user.uid,
-            items: cart,
-            address: address,
-            created: new Date()
-          });
-
-          alert("Order placed!");
-          localStorage.removeItem("cart");
-        });
-      } else {
-        alert("Please login first!");
-        window.location.href = "login.html";
-      }
-    });
-  </script>
+  <meta charset="UTF-8">
+  <title>Checkout - TYZ Fashion</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    textarea, input, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+    }
+    button {
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <h2>Checkout</h2>
+  <h1>Checkout</h1>
   <form id="checkout-form">
-    <textarea id="address" placeholder="Enter delivery address" required></textarea><br>
+    <label>Enter Address:</label>
+    <textarea id="address" required></textarea>
+    <label>Phone Number:</label>
+    <input type="tel" id="phone" required>
     <button type="submit">Place Order</button>
   </form>
+
+  <script>
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const address = document.getElementById("address").value;
+      const phone = document.getElementById("phone").value;
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (cart.length === 0) {
+        alert("Cart is empty.");
+        return;
+      }
+
+      // Save or process order (can integrate Firebase later)
+      alert("Order placed successfully!\nThank you for shopping with TYZ Fashion.");
+
+      // Clear cart
+      localStorage.removeItem("cart");
+      window.location.href = "order.html";
+    });
+  </script>
 </body>
 </html>
